@@ -1,0 +1,79 @@
+@echo off
+REM Setup Instructions for Windows Users
+
+cls
+setlocal enabledelayedexpansion
+
+echo.
+echo ╔════════════════════════════════════════════════════════╗
+echo ║  Dnevnik API - Setup Instructions (Windows)           ║
+echo ╚════════════════════════════════════════════════════════╝
+echo.
+
+echo 📋 Prerequisites:
+echo   * Python 3.11+
+echo   * PostgreSQL 12+
+echo   * Git (optional)
+echo.
+
+echo 🚀 Quick Setup (5 minutes):
+echo.
+echo 1. Create virtual environment:
+echo    python -m venv venv
+echo    venv\Scripts\activate
+echo.
+
+echo 2. Install dependencies:
+echo    pip install -r requirements.txt
+echo.
+
+echo 3. Create .env file:
+echo    copy .env.example .env
+echo    (Edit .env with your settings)
+echo.
+
+echo 4. Create PostgreSQL database:
+echo    createdb -U postgres dnevnik_db
+echo    OR use PgAdmin GUI
+echo.
+
+echo 5. Run migrations:
+echo    python manage.py migrate
+echo.
+
+echo 6. Create superuser (admin):
+echo    python manage.py createsuperuser
+echo.
+
+echo 7. Run development server:
+echo    python manage.py runserver
+echo.
+
+echo 8. Open in browser:
+echo    http://localhost:8000/api/docs/
+echo.
+
+echo 📚 Documentation:
+echo   * 00_START_HERE.md      - Overview
+echo   * README.md             - Full documentation
+echo   * QUICKSTART.md         - Quick setup guide
+echo   * API_EXAMPLES.md       - API examples
+echo   * PROJECT_STRUCTURE.md  - Architecture
+echo   * PRODUCTION.md         - Production deployment
+echo.
+
+echo ✨ Create test data (optional):
+echo    python manage.py shell
+echo    ^> exec(open('create_test_data.py').read())
+echo.
+
+echo 📞 Support:
+echo   * Check documentation files above
+echo   * Django admin: http://localhost:8000/admin/
+echo   * API docs: http://localhost:8000/api/docs/
+echo.
+
+echo ✅ Ready to develop!
+echo.
+
+pause
