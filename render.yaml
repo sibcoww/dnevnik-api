@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: dnevnik-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn dnevnik_project.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dnevnik-db
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://yourdomain.com
+
+databases:
+  - name: dnevnik-db
+    databaseName: dnevnik_db
+    user: dnevnik_user
