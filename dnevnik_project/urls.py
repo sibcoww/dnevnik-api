@@ -19,5 +19,5 @@ urlpatterns = [
     path('api/v1/journal/', include('apps.journal.urls', namespace='journal')),
     path('api/v1/homework/', include('apps.homework.urls', namespace='homework')),
     path('api/v1/exams/', include('apps.exams.urls', namespace='exams')),
-    path('api/v1/admin/', include('apps.accounts.admin_urls', namespace='admin')),
+    path('api/v1/sysadmin/', include('apps.accounts.admin_urls', namespace='sysadmin')),
 ]
