@@ -3,7 +3,7 @@ services:
     name: dnevnik-api
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn dnevnik_project.wsgi:application"
+    startCommand: "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn dnevnik_project.wsgi:application --bind 0.0.0.0:$PORT"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
